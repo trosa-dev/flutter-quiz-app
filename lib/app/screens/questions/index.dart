@@ -30,20 +30,20 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(height: 30),
-            ...currentQuestion.answers.map(
-              (answer) => Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                    child: AnswerButton(
-                      answerText: answer,
-                      onTap: () {},
-                    ),
+            ...currentQuestion.getShuffledAnswers().map(
+                  (answer) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                        child: AnswerButton(
+                          answerText: answer,
+                          onTap: () {},
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                ),
           ],
         ),
       ),
