@@ -1,5 +1,6 @@
 import 'package:fluter_quiz_app/app/screens/questions/data/questions.dart';
 import 'package:fluter_quiz_app/app/screens/questions/index.dart';
+import 'package:fluter_quiz_app/app/screens/results/index.dart';
 import 'package:fluter_quiz_app/enums/screens.dart';
 import 'package:flutter/material.dart';
 import 'screens/start/index.dart';
@@ -35,7 +36,7 @@ class _AppState extends State<App> {
     if (selectedAnswers.length == questions.length) {
       selectedAnswers = [];
       setState(() {
-        activeScreen = Screens.start;
+        activeScreen = Screens.results;
       });
     }
   }
@@ -46,7 +47,11 @@ class _AppState extends State<App> {
         return StartScreen(startQuiz: startQuiz);
       case Screens.quiz:
         return QuestionsScreen(
-            finishQuiz: finishQuiz, onSelectAnswer: chooseAnswer);
+          finishQuiz: finishQuiz,
+          onSelectAnswer: chooseAnswer,
+        );
+      case Screens.results:
+        return const ResultsScreen();
       default:
         return StartScreen(startQuiz: startQuiz);
     }
