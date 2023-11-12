@@ -1,3 +1,4 @@
+import 'package:fluter_quiz_app/app/screens/questions/data/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -5,6 +6,21 @@ class ResultsScreen extends StatelessWidget {
   const ResultsScreen({required this.selectedAnswers, super.key});
 
   final List<String> selectedAnswers;
+
+  List<Map<String, Object>> getSummaryData() {
+    final List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < selectedAnswers.length; i++) {
+      summary.add({
+        'question_index': i,
+        'question': questions[i].text,
+        'correct_answer': questions[i].answers[0],
+        'user_answer': selectedAnswers[i],
+      });
+    }
+
+    return summary;
+  }
 
   @override
   Widget build(context) {
