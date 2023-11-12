@@ -18,8 +18,9 @@ class _AppState extends State<App> {
   List<String> selectedAnswers = [];
   Screens? activeScreen;
 
-  void finishQuiz() {
+  void restartQuiz() {
     setState(() {
+      selectedAnswers = [];
       activeScreen = Screens.start;
     });
   }
@@ -46,11 +47,14 @@ class _AppState extends State<App> {
         return StartScreen(startQuiz: startQuiz);
       case Screens.quiz:
         return QuestionsScreen(
-          finishQuiz: finishQuiz,
+          finishQuiz: restartQuiz,
           onSelectAnswer: chooseAnswer,
         );
       case Screens.results:
-        return ResultsScreen(selectedAnswers: selectedAnswers);
+        return ResultsScreen(
+          selectedAnswers: selectedAnswers,
+          onRestart: restartQuiz,
+        );
       default:
         return StartScreen(startQuiz: startQuiz);
     }
