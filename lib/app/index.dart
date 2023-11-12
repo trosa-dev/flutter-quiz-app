@@ -34,7 +34,6 @@ class _AppState extends State<App> {
     selectedAnswers.add(answer);
 
     if (selectedAnswers.length == questions.length) {
-      selectedAnswers = [];
       setState(() {
         activeScreen = Screens.results;
       });
