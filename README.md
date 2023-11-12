@@ -11,6 +11,14 @@ This is a quiz app built with Flutter. It allows the user to take a quiz with qu
 - Shows final result with a summary of answers
 - Allows restarting the quiz
 
+## Screens
+
+![App Screens](https://i.ibb.co/52SP5GJ/flutter-quiz-app-screens.png)
+
+1. **StartScreen:** Initial screen with a button to start the quiz.
+2. **QuestionsScreen:** Shows the questions one at a time with answer options.
+3. **ResultsScreen:** Displays the final result after all questions have been answered.
+
 ## How it works
 
 The app has 3 main screens:
