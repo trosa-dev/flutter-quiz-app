@@ -51,7 +51,7 @@ class _AppState extends State<App> {
           onSelectAnswer: chooseAnswer,
         );
       case Screens.results:
-        return const ResultsScreen();
+        return ResultsScreen(selectedAnswers: selectedAnswers);
       default:
         return StartScreen(startQuiz: startQuiz);
     }
