@@ -13,6 +13,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  final List<String> selectedAnswers = [];
   Screens? activeScreen;
 
   void finishQuiz() {
@@ -27,12 +28,17 @@ class _AppState extends State<App> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+  }
+
   Widget handleScreen() {
     switch (activeScreen) {
       case Screens.start:
         return StartScreen(startQuiz: startQuiz);
       case Screens.quiz:
-        return QuestionsScreen(finishQuiz: finishQuiz);
+        return QuestionsScreen(
+            finishQuiz: finishQuiz, onSelectAnswer: chooseAnswer);
       default:
         return StartScreen(startQuiz: startQuiz);
     }
