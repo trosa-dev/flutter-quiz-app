@@ -48,22 +48,22 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               ),
             ),
             const SizedBox(height: 30),
-            ...currentQuestion.getShuffledAnswers().map(
-                  (answer) => Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                        child: AnswerButton(
-                          answerText: answer,
-                          onTap: () {
-                            answerQuestion(answer);
-                          },
-                        ),
-                      ),
-                    ],
+            ...currentQuestion.shuffledAnswers.map(
+              (answer) => Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: AnswerButton(
+                      answerText: answer,
+                      onTap: () {
+                        answerQuestion(answer);
+                      },
+                    ),
                   ),
-                ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
